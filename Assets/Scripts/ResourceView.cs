@@ -9,26 +9,26 @@ public class ResourceView : MonoBehaviour
     [SerializeField] private Transform resourceSlotContainer;
     [SerializeField] private Transform resourceSlotTemp;
 
-    [SerializeField] private Image image;
-
-
     public void Initialized(List<Resource> resource)
     {
         foreach (var item in resource)
         {
-            var temp = Instantiate(resourceSlotTemp, resourceSlotContainer);
+            Image temp = Instantiate(resourceSlotTemp, resourceSlotContainer).GetComponentInChildren<Image>();
             temp.gameObject.SetActive(true);
-
+            
             switch (item.resourceType)
             {
                 case Resource.ResourceType.Wheat:
-                    image.sprite = resourceSprites._WheatSprite;
+                    temp.sprite = resourceSprites._WheatSprite;
+                    temp.name = $"{ resourceSprites._WheatSprite}";
                     break;
                 case Resource.ResourceType.Flour:
-                    image.sprite = resourceSprites._FlourSprite;
+                    temp.sprite = resourceSprites._FlourSprite;
+                    temp.name = $"{ resourceSprites._FlourSprite}";
                     break;
                 case Resource.ResourceType.Bread:
-                    image.sprite = resourceSprites._BreadSprite;
+                    temp.sprite = resourceSprites._BreadSprite;
+                    temp.name = $"{ resourceSprites._BreadSprite}";
                     break;
                 default:
                     Debug.LogError("No item was found");
