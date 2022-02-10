@@ -16,8 +16,10 @@ public class InventoryDisplay : MonoBehaviour
         }
     }
 
+    [SerializeField] private ResourceSprites _resourceSprites;
     [SerializeField] private Transform _resourceSlotContainer;
     [SerializeField] private Transform _resourceSlotTemp;
+
 
     private void Update()
     {
@@ -30,6 +32,22 @@ public class InventoryDisplay : MonoBehaviour
         {
             RectTransform resourceSlotRectTransform = Instantiate(_resourceSlotTemp, _resourceSlotContainer).GetComponent<RectTransform>();
             resourceSlotRectTransform.gameObject.SetActive(true);
+
+            switch (item.resourceType)
+            {
+                case Resource.ResourceType.Wheat:
+                    resourceSlotRectTransform.gameObject.GetComponentInChildren<Image>().sprite = _resourceSprites._WheatSprite;
+                    break;
+                case Resource.ResourceType.Flour:
+                    resourceSlotRectTransform.gameObject.GetComponentInChildren<Image>().sprite = _resourceSprites._FlourSprite;
+                    break;
+                case Resource.ResourceType.Bread:
+                    resourceSlotRectTransform.gameObject.GetComponentInChildren<Image>().sprite = _resourceSprites._BreadSprite;
+                    break;
+                default:
+                    Debug.LogError("No item was found");
+                    break;
+            }
         }
     }
 }
