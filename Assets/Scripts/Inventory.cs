@@ -15,11 +15,6 @@ public class Inventory
     public Inventory()
     {
         resources = new List<Resource>();
-
-        AddResources(new Resource { resourceType = Resource.ResourceType.Wheat, Amount = 1 });
-        AddResources(new Resource { resourceType = Resource.ResourceType.Bread, Amount = 1 });
-        AddResources(new Resource { resourceType = Resource.ResourceType.Flour, Amount = 1 });
-
     }
 
     public void AddResources(Resource resource)

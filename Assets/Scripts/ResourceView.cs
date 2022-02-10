@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class ResourceView : MonoBehaviour
 {
-    [SerializeField] private ResourceSprites resourceSprites;
+    [SerializeField] private Sprite WheatSprite;
+    [SerializeField] private Sprite FlourSprite;
+    [SerializeField] private Sprite BreadSprite;
+
     [SerializeField] private Transform resourceSlotContainer;
     [SerializeField] private Transform resourceSlotTemp;
 
@@ -13,22 +16,23 @@ public class ResourceView : MonoBehaviour
     {
         foreach (var item in resource)
         {
-            Image temp = Instantiate(resourceSlotTemp, resourceSlotContainer).GetComponentInChildren<Image>();
-            temp.gameObject.SetActive(true);
+            ResourceGameObject tempSprite = Instantiate(resourceSlotTemp, resourceSlotContainer).GetComponentInChildren<ResourceGameObject>();
+
+            tempSprite.gameObject.SetActive(true);
             
             switch (item.resourceType)
             {
                 case Resource.ResourceType.Wheat:
-                    temp.sprite = resourceSprites.WheatSprite;
-                    temp.name = $"{ resourceSprites.WheatSprite}";
+                    tempSprite.ResourceSprite.sprite = WheatSprite;
+                    tempSprite.name = $"{ WheatSprite}";
                     break;
                 case Resource.ResourceType.Flour:
-                    temp.sprite = resourceSprites.FlourSprite;
-                    temp.name = $"{ resourceSprites.FlourSprite}";
+                    tempSprite.ResourceSprite.sprite = FlourSprite;
+                    tempSprite.name = $"{ FlourSprite}";
                     break;
                 case Resource.ResourceType.Bread:
-                    temp.sprite = resourceSprites.BreadSprite;
-                    temp.name = $"{ resourceSprites.BreadSprite}";
+                    tempSprite.ResourceSprite.sprite = BreadSprite;
+                    tempSprite.name = $"{ BreadSprite}";
                     break;
                 default:
                     Debug.LogError("No item was found");

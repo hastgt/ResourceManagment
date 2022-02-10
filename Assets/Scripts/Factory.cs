@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class Factory : BaseFactory
 {
-    [SerializeField] InventoryDisplay inventoryDisplay;
+    [SerializeField] private InventoryDisplay inventoryDisplay;
 
-    private Inventory resource;
-    
-    private void Start()
+    private Inventory inventory;
+    public Inventory Inventory
     {
-        resource = new Inventory();
-        inventoryDisplay.Inventory = resource;
+        get { return inventory; }
+        set
+        {
+            inventory = value;
+            inventoryDisplay.UpdateUI(inventory);
+        }
     }
 
-    protected override void CraftResource()
+    private void Awake()
     {
-        Debug.Log("craft resource");
+        inventory = new Inventory();
+    }
+
+    private void Start()
+    {
+        Inventory.AddResources(new Resource { resourceType = Resource.ResourceType.Wheat, Amount = 1 });
+        inventoryDisplay.UpdateUI(inventory);
+    }
+
+    protected override void TimeToCraft()
+    {
+        
     }
 
 }
