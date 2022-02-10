@@ -5,16 +5,16 @@ using UnityEngine;
 [Serializable]
 public class Inventory
 {
-    private List<Resource> _resource;
+    private List<Resource> resources;
     public List<Resource> Resources 
     { 
-        get { return _resource; }
-        set { _resource = value; } 
+        get { return resources; }
+        set { resources = value; } 
     }
 
     public Inventory()
     {
-        _resource = new List<Resource>();
+        resources = new List<Resource>();
 
         AddResources(new Resource { resourceType = Resource.ResourceType.Wheat, Amount = 1 });
         AddResources(new Resource { resourceType = Resource.ResourceType.Bread, Amount = 1 });
@@ -24,6 +24,6 @@ public class Inventory
 
     public void AddResources(Resource resource)
     {
-        _resource.Add(resource);
+        this.resources.Add(resource);
     }
 }

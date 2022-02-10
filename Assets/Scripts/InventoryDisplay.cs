@@ -5,21 +5,18 @@ using UnityEngine.UI;
 
 public class InventoryDisplay : MonoBehaviour
 {
-    private Inventory _inventory;
+    private Inventory inventory;
     public Inventory Inventory
     {
-        get { return _inventory; }
+        get { return inventory; }
         set
         {
-            _inventory = value;
+            inventory = value;
             UpdateUI();
         }
     }
 
     [SerializeField] private ResourceView resourceView;
-    [SerializeField] private Transform _resourceSlotContainer;
-    [SerializeField] private Transform _resourceSlotTemp;
-
 
     private void Update()
     {

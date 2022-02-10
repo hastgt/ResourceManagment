@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Factory : BaseFactory
 {
-    [SerializeField] InventoryDisplay _inventoryDisplay;
+    [SerializeField] InventoryDisplay inventoryDisplay;
 
-    private Inventory _resources;
+    private Inventory resource;
     
     private void Start()
     {
-        _resources = new Inventory();
-        _inventoryDisplay.Inventory = _resources;
+        resource = new Inventory();
+        inventoryDisplay.Inventory = resource;
     }
 
     protected override void CraftResource()

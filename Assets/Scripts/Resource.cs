@@ -13,6 +13,6 @@ public class Resource
 
     public ResourceType resourceType;
 
-    private int _amount;
-    public int Amount { get { return _amount; } set { _amount = value; } }
+    private int amount;
+    public int Amount { get { return amount; } set { amount = value; } }
 }

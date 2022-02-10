@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ResourceSprites : MonoBehaviour
 {
-    public Sprite _WheatSprite;
-    public Sprite _FlourSprite;
-    public Sprite _BreadSprite;
+    public Sprite WheatSprite;
+    public Sprite FlourSprite;
+    public Sprite BreadSprite;
 
     // Start is called before the first frame update
     void Start()

@@ -19,16 +19,16 @@ public class ResourceView : MonoBehaviour
             switch (item.resourceType)
             {
                 case Resource.ResourceType.Wheat:
-                    temp.sprite = resourceSprites._WheatSprite;
-                    temp.name = $"{ resourceSprites._WheatSprite}";
+                    temp.sprite = resourceSprites.WheatSprite;
+                    temp.name = $"{ resourceSprites.WheatSprite}";
                     break;
                 case Resource.ResourceType.Flour:
-                    temp.sprite = resourceSprites._FlourSprite;
-                    temp.name = $"{ resourceSprites._FlourSprite}";
+                    temp.sprite = resourceSprites.FlourSprite;
+                    temp.name = $"{ resourceSprites.FlourSprite}";
                     break;
                 case Resource.ResourceType.Bread:
-                    temp.sprite = resourceSprites._BreadSprite;
-                    temp.name = $"{ resourceSprites._BreadSprite}";
+                    temp.sprite = resourceSprites.BreadSprite;
+                    temp.name = $"{ resourceSprites.BreadSprite}";
                     break;
                 default:
                     Debug.LogError("No item was found");
