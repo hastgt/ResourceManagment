@@ -1,2 +1,2 @@
 # ResourceManagment
-Small project for to get a job
+Small project to get a job
